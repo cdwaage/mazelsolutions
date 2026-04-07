@@ -96,7 +96,7 @@ const whyMazel = [
   },
   {
     title: 'Enterprise Pedigree',
-    desc: 'Kaiser. Verizon. ClearCaptions. Fortune 500 expertise, startup agility.',
+    desc: 'Kaiser. Verizon. CA Dept of Technology. OES. 27 years of enterprise and government experience.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
         <rect x="4" y="10" width="20" height="14" rx="2" stroke="#0099FF" strokeWidth="1.5" fill="none" />

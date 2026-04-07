@@ -61,10 +61,10 @@ function StatItem({ value, label }: StatProps) {
 
 export default function StatsCounter() {
   const stats: StatProps[] = [
-    { value: '15+', label: 'Years Experience' },
-    { value: '500+', label: 'Networks Designed' },
+    { value: '27+', label: 'Years Experience' },
+    { value: '7', label: 'Data Centers Standardized' },
+    { value: '99.95%', label: 'Avg Uptime' },
     { value: '100%', label: 'Vendor Independent' },
-    { value: '24/7', label: 'Incident Response' },
   ];
 
   return (

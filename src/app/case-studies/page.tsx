@@ -3,66 +3,66 @@ import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
   title: 'Case Studies',
-  description: 'Real-world results from Mazel Solutions — from healthcare network modernization to post-breach security overhauls and SaaS platform launches.',
+  description: 'Real-world results from Mazel Solutions — from state government security operations to enterprise data center standardization and high-availability migrations.',
 };
 
 const caseStudies = [
   {
     id: 1,
-    title: 'Healthcare Network Redesign',
-    category: 'Network Infrastructure',
+    title: 'State Government Network Security Overhaul',
+    category: 'Network Security',
     gradientFrom: '#0099FF',
     gradientTo: '#00B4D8',
     accentColor: '#0099FF',
-    icon: '🏥',
+    icon: '🛡️',
     challenge:
-      '500-bed hospital with aging network infrastructure needed HIPAA-compliant modernization with zero patient care disruption. Legacy systems were creating security vulnerabilities and performance bottlenecks across critical care units.',
+      'A state government network needed comprehensive security modernization to defend critical infrastructure. The existing IPS platform was aging, no dedicated Network Protection Team existed to handle escalating threats, and DDoS attacks against public-facing services were increasing in both frequency and sophistication.',
     approach:
-      'Designed a phased migration strategy with redundant pathways to ensure continuous operation throughout the transition. Conducted a comprehensive security audit and implemented Zero Trust network segmentation across all clinical and administrative zones.',
+      'Deployed and managed Palo Alto Next-Generation Firewalls with full Threat Prevention, App-ID, URL Filtering, and WildFire sandboxing across the enterprise. Operationalized a new Network Protection Team from the ground up, building out processes, escalation paths, and monitoring workflows. Developed custom Splunk queries for real-time security event correlation and configured DoS protection profiles to defend against volumetric and application-layer attacks.',
     results: [
-      { stat: '99.99%', label: 'Uptime During Migration' },
-      { stat: 'Zero', label: 'HIPAA Violations' },
-      { stat: '40%', label: 'Reduction in Network Incidents' },
+      { stat: '4+ Years', label: 'Continuous Security Operations' },
+      { stat: 'Level 3', label: 'Critical Incident Response' },
+      { stat: 'Zero', label: 'Successful DDoS Attacks' },
     ],
-    technologies: ['Cisco', 'Palo Alto', 'SD-WAN', 'Zero Trust Architecture'],
+    technologies: ['Palo Alto NGFW', 'Tipping Point IPS', 'Splunk', 'WildFire'],
   },
   {
     id: 2,
-    title: 'SaaS MVP to Launch',
-    category: 'Software Development',
+    title: 'Enterprise Data Center Standardization',
+    category: 'Data Center Infrastructure',
     gradientFrom: '#00B4D8',
     gradientTo: '#F58220',
     accentColor: '#00B4D8',
-    icon: '🚀',
+    icon: '🏗️',
     challenge:
-      'Early-stage startup needed to go from concept to production-ready SaaS platform with limited runway. Founders required a scalable cloud-native architecture capable of handling rapid user growth from day one.',
+      'A major healthcare organization operating 7 national data centers faced inconsistent documentation, non-standardized workflows, and fragmented operational practices across sites. The network needed to meet Medical Grade Network reliability standards — any disruption could directly impact patient care systems.',
     approach:
-      'Executed agile development with 2-week sprints, maintaining rapid iteration without sacrificing quality. Built a cloud-native architecture on AWS with CI/CD pipelines established from day one to enable continuous deployment and fast feedback loops.',
+      'Initiated and led a cross-site standardization effort, collaborating with data center leads at all 7 facilities to align documentation, change management, and operational procedures. Managed a large-scale infrastructure footprint including approximately 40 Nexus 7K/5K/2K switches, around 100 Cisco 6509 chassis with 10-Gigabit interconnections, and roughly 50 ASA and Palo Alto firewalls — all supporting an ecosystem of over 10,000 systems.',
     results: [
-      { stat: '12 Weeks', label: 'Concept to Launch' },
-      { stat: '50K+', label: 'Users in First Month' },
-      { stat: '99.9%', label: 'Platform Uptime' },
+      { stat: '7', label: 'Data Centers Standardized' },
+      { stat: '10,000+', label: 'Systems Supported' },
+      { stat: 'Zero', label: 'Impact to Medical Grade Networks' },
     ],
-    technologies: ['React', 'Node.js', 'AWS', 'Docker', 'Kubernetes', 'Terraform'],
+    technologies: ['Cisco Nexus', 'Cisco 6509', 'ASA', 'Palo Alto', 'Medical Grade Networks'],
   },
   {
     id: 3,
-    title: 'Post-Breach Security Overhaul',
-    category: 'Cybersecurity',
+    title: 'High-Availability Data Center Migration',
+    category: 'Data Center Migration',
     gradientFrom: '#F58220',
     gradientTo: '#0099FF',
     accentColor: '#F58220',
-    icon: '🔐',
+    icon: '🔄',
     challenge:
-      'Mid-market company suffered a ransomware attack that exposed critical vulnerabilities across their entire infrastructure. The organization needed a complete security posture rebuild — fast — to prevent recurrence and achieve compliance.',
+      'A telecommunications provider needed to migrate its entire high-availability network to a new data center environment while maintaining uninterrupted service continuity. The migration demanded a modern software-defined architecture capable of supporting cloud workloads at scale.',
     approach:
-      'Initiated immediate incident response and forensic analysis to understand the attack vector and full scope of compromise. Implemented Zero Trust architecture organization-wide and delivered comprehensive security awareness training across all 200+ employees.',
+      'Served as the principal engineer responsible for planning, designing, configuring, deploying, and supervising the full data center migration end-to-end. Designed a Cisco ACI software-defined network architecture to support OpenStack cloud infrastructure. Deployed Cisco Firepower security architecture to provide next-generation threat protection across the new environment while maintaining 3rd-level on-call support throughout the transition.',
     results: [
-      { stat: '0 Incidents', label: 'Post-Deployment' },
-      { stat: '100%', label: 'Employee Security Training' },
-      { stat: 'SOC 2', label: 'Type II Certified' },
+      { stat: 'Zero', label: 'Downtime During Migration' },
+      { stat: 'SDN', label: 'Architecture Deployed (Cisco ACI)' },
+      { stat: '3rd Level', label: 'On-Call Support Maintained' },
     ],
-    technologies: ['CrowdStrike', 'Palo Alto', 'SIEM', 'Zero Trust', 'MFA'],
+    technologies: ['Cisco ACI', 'OpenStack', 'Cisco Firepower', 'SDN'],
   },
 ];
 
@@ -100,8 +100,8 @@ export default function CaseStudiesPage() {
 
           <ScrollReveal delay={2}>
             <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-              From healthcare compliance to post-breach recovery, every engagement is built on
-              enterprise-grade expertise and a commitment to measurable outcomes.
+              From state government security operations to enterprise data center standardization,
+              every engagement is built on enterprise-grade expertise and a commitment to measurable outcomes.
             </p>
           </ScrollReveal>
         </div>

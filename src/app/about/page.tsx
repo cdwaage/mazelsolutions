@@ -5,45 +5,58 @@ import ScrollReveal from '@/components/ScrollReveal';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Meet Cameron Waage — Lead Data Center Network Engineer at Kaiser Permanente, founder of Mazel Solutions, and 20-year veteran of enterprise network architecture and cybersecurity.',
+    'Meet Cameron Waage — 27-year network engineering and cybersecurity veteran, founder of Mazel Solutions. From Verizon carrier-grade networks to Kaiser Permanente data centers to California state government security — vendor-agnostic consulting built on hands-on experience.',
 };
 
 const timeline = [
   {
-    year: 'Present',
+    year: '2019 – Present',
     role: 'Founder & Principal Consultant',
     company: 'Mazel Solutions',
-    desc: 'Vendor-agnostic IT consulting, network architecture, cybersecurity, and custom development for businesses of every size.',
+    desc: 'Vendor-agnostic IT consulting, network architecture, cybersecurity, and custom development for businesses of every size. Founded to provide honest, outcome-driven guidance with no vendor quotas or reseller agreements.',
     current: true,
   },
   {
-    year: '2021 – Present',
-    role: 'Lead Data Center Network Engineer',
-    company: 'Kaiser Permanente',
-    desc: 'Architect and maintain multi-site data center fabric for one of the largest not-for-profit health plans in the United States — handling strict HIPAA compliance, high-availability requirements, and petabyte-scale traffic.',
+    year: '2024',
+    role: 'Network Security Consultant',
+    company: 'CA Governor\'s Office of Emergency Services (OES)',
+    desc: 'Full network discovery, strategic architecture drawings, Data Center documentation, and comprehensive security assessment for one of California\'s critical emergency response agencies.',
     current: false,
   },
   {
-    year: '2018 – 2021',
+    year: '2019 – 2023',
+    role: 'Network Security Consultant',
+    company: 'California Department of Technology (CDT)',
+    desc: 'Deployed and managed Palo Alto next-generation firewalls and Tipping Point IPS across state infrastructure. Operationalized the Network Protection Team, led DDoS response, built Splunk dashboards, and provided L3 security support.',
+    current: false,
+  },
+  {
+    year: '2017 – 2019',
     role: 'Network Architect',
     company: 'ClearCaptions',
-    desc: 'Designed the core network infrastructure for a nationwide telecommunications provider, building SD-WAN overlays and zero-trust segmentation from the ground up.',
+    desc: 'Led a full data center migration and designed Cisco ACI software-defined network fabrics from scratch. Architected Firepower security infrastructure and high-availability network design for a nationwide telecommunications provider.',
     current: false,
   },
   {
-    year: '2014 – 2018',
+    year: '2009 – 2014',
+    role: 'Data Center Network Engineer',
+    company: 'Kaiser Permanente',
+    desc: 'Led network standardization across 7 national data centers — approximately 40 Nexus 7K/5K/2K switches, 100 Cisco 6509s, and 50 ASA and Palo Alto firewalls. Designed and maintained Medical Grade Networks under strict HIPAA requirements.',
+    current: false,
+  },
+  {
+    year: '2000 – 2009',
     role: 'Senior Network Engineer',
     company: 'Verizon Business',
-    desc: 'Engineered carrier-grade MPLS backbones and managed complex enterprise customer deployments across the US. Developed deep expertise in BGP policy, QoS, and network automation.',
+    desc: 'Nearly a decade in a $100K/day SLA penalty environment. Maintained 99.95% uptime over 5 consecutive years. Conducted security audits and engineered multi-state WAN infrastructure at carrier scale.',
     current: false,
   },
 ];
 
-const certifications = [
+const coreTechnologies = [
   {
-    abbr: 'CCNP',
-    full: 'Cisco Certified Network Professional',
-    domain: 'Enterprise Networking',
+    name: 'Cisco ACI / Nexus',
+    domain: 'Data Center Fabric',
     color: '#0099FF',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -56,9 +69,8 @@ const certifications = [
     ),
   },
   {
-    abbr: 'CISSP',
-    full: 'Certified Information Systems Security Professional',
-    domain: 'Cybersecurity',
+    name: 'Palo Alto NGFW',
+    domain: 'Next-Gen Security',
     color: '#00B4D8',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -68,28 +80,82 @@ const certifications = [
     ),
   },
   {
-    abbr: 'AWS SA',
-    full: 'AWS Certified Solutions Architect',
-    domain: 'Cloud Architecture',
-    color: '#F58220',
+    name: 'VMware NSX / ESX',
+    domain: 'Virtualization & Micro-Seg',
+    color: '#7C3AED',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <path d="M8 20c-2.5 0-4-1.5-4-3.5 0-1.8 1.3-3.2 3-3.5a5 5 0 019.6-2A4 4 0 0124 15c2 .5 3.5 2 3.5 4S25.5 23 23 23H8z" stroke="#F58220" strokeWidth="1.5" fill="none" strokeLinejoin="round" />
-        <path d="M16 23v5M12 25l4 3 4-3" stroke="#F58220" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <rect x="4" y="6" width="24" height="16" rx="2" stroke="#7C3AED" strokeWidth="1.5" fill="none" />
+        <path d="M4 14h24" stroke="#7C3AED" strokeWidth="1" strokeDasharray="2 2" />
+        <path d="M16 6v16" stroke="#7C3AED" strokeWidth="1" strokeDasharray="2 2" />
+        <path d="M12 26h8" stroke="#7C3AED" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M16 22v4" stroke="#7C3AED" strokeWidth="1.5" />
       </svg>
     ),
   },
   {
-    abbr: 'Security+',
-    full: 'CompTIA Security+',
-    domain: 'Security Fundamentals',
+    name: 'Splunk',
+    domain: 'SIEM & Analytics',
+    color: '#F58220',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M4 24l7-8 5 4 7-10 5 6" stroke="#F58220" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <circle cx="11" cy="16" r="2" fill="#F58220" fillOpacity="0.3" />
+        <circle cx="16" cy="20" r="2" fill="#F58220" fillOpacity="0.3" />
+        <circle cx="23" cy="10" r="2" fill="#F58220" fillOpacity="0.3" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Cisco Firepower',
+    domain: 'Threat Defense',
+    color: '#EF4444',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M16 4c0 0-4 4-4 10s4 10 4 10" stroke="#EF4444" strokeWidth="1.5" fill="none" />
+        <path d="M16 4c0 0 4 4 4 10s-4 10-4 10" stroke="#EF4444" strokeWidth="1.5" fill="none" />
+        <path d="M6 14h20M6 18h20" stroke="#EF4444" strokeWidth="1" strokeLinecap="round" />
+        <circle cx="16" cy="16" r="10" stroke="#EF4444" strokeWidth="1.5" fill="none" />
+      </svg>
+    ),
+  },
+  {
+    name: 'F5 / Aruba / Juniper',
+    domain: 'Load Balancing & Access',
+    color: '#10B981',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M16 6v4M16 22v4M6 16h4M22 16h4" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="16" cy="16" r="6" stroke="#10B981" strokeWidth="1.5" fill="none" />
+        <circle cx="16" cy="16" r="2" fill="#10B981" fillOpacity="0.4" />
+        <path d="M8 8l2.5 2.5M21.5 21.5L24 24M8 24l2.5-2.5M21.5 10.5L24 8" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Python',
+    domain: 'Automation & Scripting',
+    color: '#3B82F6',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M12 4h8a4 4 0 014 4v4h-8a4 4 0 00-4 4v4h-4a4 4 0 01-4-4V8a4 4 0 014-4z" stroke="#3B82F6" strokeWidth="1.5" fill="none" />
+        <path d="M20 28h-8a4 4 0 01-4-4v-4h8a4 4 0 004-4v-4h4a4 4 0 014 4v8a4 4 0 01-4 4z" stroke="#3B82F6" strokeWidth="1.5" fill="none" />
+        <circle cx="14" cy="8" r="1.5" fill="#3B82F6" fillOpacity="0.5" />
+        <circle cx="18" cy="24" r="1.5" fill="#3B82F6" fillOpacity="0.5" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Juniper SRX',
+    domain: 'Perimeter Security',
     color: '#A855F7',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <rect x="6" y="4" width="20" height="24" rx="3" stroke="#A855F7" strokeWidth="1.5" fill="none" />
-        <path d="M11 12h10M11 16h10M11 20h6" stroke="#A855F7" strokeWidth="1.5" strokeLinecap="round" />
-        <circle cx="23" cy="22" r="5" fill="#020817" stroke="#A855F7" strokeWidth="1.5" />
-        <path d="M21 22h4M23 20v4" stroke="#A855F7" strokeWidth="1.5" strokeLinecap="round" />
+        <rect x="6" y="8" width="20" height="16" rx="3" stroke="#A855F7" strokeWidth="1.5" fill="none" />
+        <path d="M10 16h12" stroke="#A855F7" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="12" cy="12" r="1.5" fill="#A855F7" fillOpacity="0.4" />
+        <circle cx="20" cy="12" r="1.5" fill="#A855F7" fillOpacity="0.4" />
+        <path d="M12 20h8" stroke="#A855F7" strokeWidth="1" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -110,7 +176,7 @@ const philosophy = [
   },
   {
     title: 'Builder Mentality',
-    desc: 'I am not a slide-deck consultant. I build. I have designed data center fabrics from scratch, written the automation scripts, deployed the firewalls, and gone on-call at 2 AM when something broke. That hands-on experience shapes every recommendation I make.',
+    desc: 'I am not a slide-deck consultant. I build. I have designed data center fabrics from scratch, configured Palo Alto firewalls at the policy level, standardized Nexus switching across seven national data centers, and gone on-call at 2 AM when something broke. That hands-on experience shapes every recommendation I make.',
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
         <rect x="8" y="14" width="24" height="16" rx="3" stroke="#00B4D8" strokeWidth="1.5" fill="none" />
@@ -135,7 +201,7 @@ const philosophy = [
 export default function AboutPage() {
   return (
     <>
-      {/* ── Hero ──────────────────────────────────────────── */}
+      {/* -- Hero ------------------------------------------------ */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-[#020817] py-32 px-4">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,153,255,0.12)_0%,transparent_65%)]" />
         {/* Subtle network mesh */}
@@ -174,13 +240,13 @@ export default function AboutPage() {
           </ScrollReveal>
           <ScrollReveal delay={1}>
             <p className="mt-6 text-lg sm:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-              Two decades of enterprise networking, security, and infrastructure — built into one independent consultancy with no vendor agenda.
+              27 years of enterprise networking, security, and infrastructure — from carrier-grade WANs to state government cybersecurity — built into one independent consultancy with no vendor agenda.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ── Story + Headshot ─────────────────────────────── */}
+      {/* -- Story + Headshot ----------------------------------- */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0F172A]">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-[1fr_360px] gap-16 items-start">
           {/* Story copy */}
@@ -192,12 +258,12 @@ export default function AboutPage() {
             </ScrollReveal>
             <ScrollReveal delay={1}>
               <p className="text-white/70 text-lg leading-relaxed">
-                I have spent more than twenty years building networks for organizations that cannot afford for them to go down. Right now that means serving as Lead Data Center Network Engineer at Kaiser Permanente, where I design and maintain multi-site fabric for one of the largest health plans in the country. Before that, I was a Network Architect at ClearCaptions and a Senior Network Engineer at Verizon Business. I have worked at carrier scale, healthcare scale, and startup scale. The problems look different; the discipline required to solve them does not.
+                I have spent 27 years building networks for organizations that cannot afford for them to go down. I started in 1997 as a network specialist, learned the craft from the ground up, and spent the next decade at Verizon Business engineering multi-state WANs in a $100K/day SLA penalty environment — the kind of place where you either develop real discipline or you do not last. From there I moved to Kaiser Permanente, where I led network standardization across seven national data centers, managing roughly 40 Nexus switches, 100 Cisco 6509s, and 50 firewalls under strict HIPAA requirements.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={2}>
               <p className="text-white/70 text-lg leading-relaxed">
-                I started Mazel Solutions because I saw a gap. Small and mid-sized businesses were getting advice from consultants who were really salespeople in disguise — people with quota targets, vendor certifications that came with strings attached, and a financial incentive to recommend the most expensive solution rather than the right one. I knew I could do better, and I knew the organizations that needed it most were the ones who could not afford to be misled.
+                I went on to design Cisco ACI fabrics from scratch at ClearCaptions, then spent four years as a network security consultant for the California Department of Technology — deploying Palo Alto firewalls, operationalizing their Network Protection Team, and running DDoS response across state infrastructure. Most recently I completed a security assessment for the Governor&apos;s Office of Emergency Services. I am not just a consultant who draws diagrams. I have configured the firewalls, written the automation scripts, migrated the data centers, and taken the 2 AM calls.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={3}>
@@ -210,7 +276,7 @@ export default function AboutPage() {
             </ScrollReveal>
             <ScrollReveal delay={4}>
               <p className="text-white/70 text-lg leading-relaxed">
-                Every engagement at Mazel Solutions starts with listening — to your business goals, your constraints, and your team&apos;s capabilities. Technology is a means, not an end. My job is to make sure the technology you buy and build actually serves the outcome you need, and that your team can own it long after I am gone.
+                I founded Mazel Solutions in 2019, carrying forward the vendor-agnostic philosophy I learned at Shandam Consulting — where I spent three years doing HIPAA assessments and network security work for California state agencies including DSH, DWR, CEC, and the CA ISO. Every engagement starts with listening — to your business goals, your constraints, and your team&apos;s capabilities. Technology is a means, not an end. My job is to make sure the technology you buy and build actually serves the outcome you need, and that your team can own it long after I am gone.
               </p>
             </ScrollReveal>
           </div>
@@ -247,7 +313,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Career Timeline ───────────────────────────────── */}
+      {/* -- Career Timeline ------------------------------------- */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#020817]">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
@@ -308,7 +374,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Philosophy ────────────────────────────────────── */}
+      {/* -- Philosophy ------------------------------------------ */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0F172A]">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
@@ -336,36 +402,35 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Certifications ───────────────────────────────── */}
+      {/* -- Core Technologies ----------------------------------- */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#020817]">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
-            <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-3 font-semibold">Credentials</p>
-            <h2 className="text-3xl sm:text-4xl font-bold font-display mb-4">Certifications</h2>
+            <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-3 font-semibold">Expertise</p>
+            <h2 className="text-3xl sm:text-4xl font-bold font-display mb-4">Core Technologies</h2>
             <p className="text-white/60 text-lg max-w-2xl mb-16 leading-relaxed">
-              Industry-recognized certifications that back every recommendation with verified expertise.
+              Platforms and tools I have deployed, configured, and operated hands-on in production environments — not just studied for an exam.
             </p>
           </ScrollReveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {certifications.map((cert, i) => (
-              <ScrollReveal key={cert.abbr} delay={Math.min(i + 1, 4) as 1 | 2 | 3 | 4}>
+            {coreTechnologies.map((tech, i) => (
+              <ScrollReveal key={tech.name} delay={Math.min(i + 1, 4) as 1 | 2 | 3 | 4}>
                 <div className="card-hover h-full glass rounded-3xl p-7 group relative overflow-hidden">
                   <div
                     className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ background: `radial-gradient(ellipse at top left, ${cert.color}10 0%, transparent 70%)` }}
+                    style={{ background: `radial-gradient(ellipse at top left, ${tech.color}10 0%, transparent 70%)` }}
                   />
                   <div className="relative z-10 flex flex-col h-full">
-                    <div className="mb-5">{cert.icon}</div>
+                    <div className="mb-5">{tech.icon}</div>
                     <p
-                      className="text-2xl font-bold font-display mb-1"
-                      style={{ color: cert.color }}
+                      className="text-lg font-bold font-display mb-1"
+                      style={{ color: tech.color }}
                     >
-                      {cert.abbr}
+                      {tech.name}
                     </p>
-                    <p className="text-white font-semibold text-sm mb-1">{cert.full}</p>
                     <p className="text-white/40 text-xs mt-auto pt-3 uppercase tracking-wider font-medium">
-                      {cert.domain}
+                      {tech.domain}
                     </p>
                   </div>
                 </div>
@@ -375,7 +440,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── CTA ──────────────────────────────────────────── */}
+      {/* -- CTA ------------------------------------------------- */}
       <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-[#0F172A]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,153,255,0.08)_0%,transparent_65%)]" />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
