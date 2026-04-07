@@ -34,11 +34,11 @@ export const metadata: Metadata = {
     description: 'Enterprise-grade IT consulting, custom development, and cybersecurity — without the enterprise price tag or vendor bias.',
     images: [
       {
-        url: 'https://mazelsolutions.com/og-image.svg',
+        url: 'https://mazelsolutions.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Mazel Solutions - IT Consulting, Development & Security - Placer County, CA',
-        type: 'image/svg+xml',
+        type: 'image/png',
       },
     ],
   },
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Mazel Solutions | IT Consulting, Development & Security',
     description: 'Enterprise-grade IT consulting, custom development, and cybersecurity.',
-    images: ['https://mazelsolutions.com/og-image.svg'],
+    images: ['https://mazelsolutions.com/og-image.png'],
   },
   robots: { index: true, follow: true },
 };
