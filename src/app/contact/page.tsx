@@ -6,12 +6,57 @@ import ScrollReveal from '@/components/ScrollReveal';
 // metadata is exported from a separate generateMetadata or in layout
 // 'use client' pages cannot export metadata
 
+// ──────────────────────────────────────────────────────────
+// Web3Forms access key — get yours free at https://web3forms.com
+// Enter info@mazelsolutions.com, check your inbox, paste the key below.
+// ──────────────────────────────────────────────────────────
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || '';
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError(null);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: `New Contact Form Submission from ${formData.get('name')}`,
+      from_name: 'Mazel Solutions Contact Form',
+      name: formData.get('name'),
+      email: formData.get('email'),
+      company: formData.get('company') || 'Not provided',
+      service: formData.get('service') || 'Not specified',
+      budget: formData.get('budget') || 'Not specified',
+      message: formData.get('message') || 'No message',
+    };
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        setError(data.message || 'Something went wrong. Please try again or email us directly.');
+      }
+    } catch {
+      setError('Network error. Please check your connection and try again, or email us at info@mazelsolutions.com.');
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   const inputClasses =
@@ -193,12 +238,24 @@ export default function ContactPage() {
                       />
                     </div>
 
+                    {/* Error message */}
+                    {error && (
+                      <div
+                        className="rounded-xl px-4 py-3 text-sm text-red-300 border border-red-500/30"
+                        style={{ background: 'rgba(239,68,68,0.08)' }}
+                        role="alert"
+                      >
+                        {error}
+                      </div>
+                    )}
+
                     {/* Submit */}
                     <button
                       type="submit"
-                      className="btn-warm w-full py-4 rounded-xl font-display font-semibold text-white text-base tracking-wide"
+                      disabled={submitting}
+                      className="btn-warm w-full py-4 rounded-xl font-display font-semibold text-white text-base tracking-wide disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      Schedule a Free 30-Minute Consultation
+                      {submitting ? 'Sending...' : 'Schedule a Free 30-Minute Consultation'}
                     </button>
 
                     <p className="text-white/40 text-xs text-center">
