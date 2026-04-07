@@ -1,55 +1,58 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Meet Cameron Waage — 27-year network engineering and cybersecurity veteran, founder of Mazel Solutions. From Verizon carrier-grade networks to Kaiser Permanente data centers to California state government security — vendor-agnostic consulting built on hands-on experience.',
+    'Meet Cameron Waage — 27-year network engineering and cybersecurity veteran, founder of Mazel Solutions. From carrier-grade networks to Fortune 100 data centers to state government cybersecurity — vendor-agnostic consulting built on hands-on experience.',
 };
 
-const timeline = [
+const experienceHighlights = [
   {
-    year: '2019 – Present',
-    role: 'Founder & Principal Consultant',
-    company: 'Mazel Solutions',
-    desc: 'Vendor-agnostic IT consulting, network architecture, cybersecurity, and custom development for businesses of every size. Founded to provide honest, outcome-driven guidance with no vendor quotas or reseller agreements.',
-    current: true,
+    title: 'Carrier-Grade Networks',
+    desc: 'Nearly a decade engineering multi-state WANs in a $100K/day SLA penalty environment. Maintained 99.95% uptime across carrier-scale infrastructure — the kind of environment where real discipline is built.',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M4 24l7-6 5 3 7-9 5 5" stroke="#0099FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <circle cx="16" cy="16" r="10" stroke="#0099FF" strokeWidth="1" strokeDasharray="2 2" fill="none" />
+      </svg>
+    ),
   },
   {
-    year: '2024',
-    role: 'Network Security Consultant',
-    company: 'CA Governor\'s Office of Emergency Services (OES)',
-    desc: 'Full network discovery, strategic architecture drawings, Data Center documentation, and comprehensive security assessment for one of California\'s critical emergency response agencies.',
-    current: false,
+    title: 'Fortune 100 Data Centers',
+    desc: 'Led network standardization across seven national data centers for one of the country\'s largest healthcare organizations — hundreds of switches and firewalls under strict HIPAA requirements.',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect x="6" y="4" width="20" height="24" rx="2" stroke="#00B4D8" strokeWidth="1.5" fill="none" />
+        <path d="M10 10h12M10 14h12M10 18h8" stroke="#00B4D8" strokeWidth="1" strokeLinecap="round" />
+        <circle cx="22" cy="24" r="2" fill="#00B4D8" fillOpacity="0.3" />
+      </svg>
+    ),
   },
   {
-    year: '2019 – 2023',
-    role: 'Network Security Consultant',
-    company: 'California Department of Technology (CDT)',
-    desc: 'Deployed and managed Palo Alto next-generation firewalls and Tipping Point IPS across state infrastructure. Operationalized the Network Protection Team, led DDoS response, built Splunk dashboards, and provided L3 security support.',
-    current: false,
+    title: 'State Government Cybersecurity',
+    desc: 'Several years securing California\'s state government networks — deploying next-generation firewalls, leading DDoS response, and conducting comprehensive security assessments for critical agencies.',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M16 3L4 9v9c0 7.5 12 11 12 11s12-3.5 12-11V9L16 3z" stroke="#7C3AED" strokeWidth="1.5" fill="none" />
+        <path d="M11 16l3.5 3.5L21 13" stroke="#7C3AED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
   },
   {
-    year: '2017 – 2019',
-    role: 'Network Architect',
-    company: 'ClearCaptions',
-    desc: 'Led a full data center migration and designed Cisco ACI software-defined network fabrics from scratch. Architected Firepower security infrastructure and high-availability network design for a nationwide telecommunications provider.',
-    current: false,
-  },
-  {
-    year: '2009 – 2014',
-    role: 'Data Center Network Engineer',
-    company: 'Kaiser Permanente',
-    desc: 'Led network standardization across 7 national data centers — approximately 40 Nexus 7K/5K/2K switches, 100 Cisco 6509s, and 50 ASA and Palo Alto firewalls. Designed and maintained Medical Grade Networks under strict HIPAA requirements.',
-    current: false,
-  },
-  {
-    year: '2000 – 2009',
-    role: 'Senior Network Engineer',
-    company: 'Verizon Business',
-    desc: 'Nearly a decade in a $100K/day SLA penalty environment. Maintained 99.95% uptime over 5 consecutive years. Conducted security audits and engineered multi-state WAN infrastructure at carrier scale.',
-    current: false,
+    title: 'Software-Defined Infrastructure',
+    desc: 'Designed Cisco ACI data center fabrics from scratch. Full data center migrations, Firepower security architecture, and high-availability network design for nationwide service providers.',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="8" r="3" stroke="#10B981" strokeWidth="1.5" fill="none" />
+        <circle cx="7" cy="24" r="3" stroke="#10B981" strokeWidth="1.5" fill="none" />
+        <circle cx="25" cy="24" r="3" stroke="#10B981" strokeWidth="1.5" fill="none" />
+        <path d="M16 11v6M11 21l3-4M21 21l-3-4" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="16" cy="17" r="2" fill="#10B981" fillOpacity="0.3" />
+      </svg>
+    ),
   },
 ];
 
@@ -258,25 +261,25 @@ export default function AboutPage() {
             </ScrollReveal>
             <ScrollReveal delay={1}>
               <p className="text-white/70 text-lg leading-relaxed">
-                I have spent 27 years building networks for organizations that cannot afford for them to go down. I started in 1997 as a network specialist, learned the craft from the ground up, and spent the next decade at Verizon Business engineering multi-state WANs in a $100K/day SLA penalty environment — the kind of place where you either develop real discipline or you do not last. From there I moved to Kaiser Permanente, where I led network standardization across seven national data centers, managing roughly 40 Nexus switches, 100 Cisco 6509s, and 50 firewalls under strict HIPAA requirements.
+                I have spent 27 years building and securing enterprise networks. I got my start in the late 90s during the dot-com era and learned the craft from the ground up — configuring routers, pulling cable, taking the 2 AM calls. I spent nearly a decade engineering carrier-grade networks under SLA penalties that would bankrupt most companies. That is where real discipline gets built.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={2}>
               <p className="text-white/70 text-lg leading-relaxed">
-                I went on to design Cisco ACI fabrics from scratch at ClearCaptions, then spent four years as a network security consultant for the California Department of Technology — deploying Palo Alto firewalls, operationalizing their Network Protection Team, and running DDoS response across state infrastructure. Most recently I completed a security assessment for the Governor&apos;s Office of Emergency Services. I am not just a consultant who draws diagrams. I have configured the firewalls, written the automation scripts, migrated the data centers, and taken the 2 AM calls.
+                From there I went on to build and standardize data center infrastructure for one of the nation&apos;s largest healthcare organizations, designed software-defined network fabrics from scratch, and spent years securing California&apos;s state government networks. I am not a consultant who draws diagrams — I have configured the firewalls, written the automation scripts, migrated the data centers, and managed the infrastructure in production.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={3}>
               <blockquote className="relative border-l-2 border-[#0099FF] pl-6 py-2">
                 <p className="text-white text-xl font-medium font-display leading-snug italic">
-                  &ldquo;I started Mazel Solutions because I saw too many businesses getting sold solutions they didn&apos;t need by consultants who had vendor quotas to meet.&rdquo;
+                  &ldquo;I founded Mazel Solutions to give businesses the same caliber of expertise without the vendor bias.&rdquo;
                 </p>
                 <footer className="mt-4 text-white/40 text-sm not-italic">— Cameron Waage, Founder</footer>
               </blockquote>
             </ScrollReveal>
             <ScrollReveal delay={4}>
               <p className="text-white/70 text-lg leading-relaxed">
-                I founded Mazel Solutions in 2019, carrying forward the vendor-agnostic philosophy I learned at Shandam Consulting — where I spent three years doing HIPAA assessments and network security work for California state agencies including DSH, DWR, CEC, and the CA ISO. Every engagement starts with listening — to your business goals, your constraints, and your team&apos;s capabilities. Technology is a means, not an end. My job is to make sure the technology you buy and build actually serves the outcome you need, and that your team can own it long after I am gone.
+                Too many businesses get sold solutions they do not need by consultants who have vendor quotas to meet. Every engagement at Mazel Solutions starts with listening — to your business goals, your constraints, and your team&apos;s capabilities. Technology is a means, not an end. My job is to make sure the technology you buy and build actually serves the outcome you need, and that your team can own it long after I am gone.
               </p>
             </ScrollReveal>
           </div>
@@ -287,25 +290,20 @@ export default function AboutPage() {
               {/* Glow ring */}
               <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-[#0099FF] to-[#00B4D8] opacity-30 blur-xl" />
               {/* Avatar card */}
-              <div className="relative rounded-3xl overflow-hidden border border-[rgba(255,255,255,0.10)] bg-gradient-to-br from-[#0F172A] to-[#020817] aspect-[4/5] flex flex-col items-center justify-center gap-4">
-                {/* Initials circle */}
-                <div
-                  className="w-28 h-28 rounded-full flex items-center justify-center text-4xl font-bold font-display text-white select-none"
-                  style={{ background: 'linear-gradient(135deg, #0099FF 0%, #00B4D8 100%)' }}
-                  aria-label="Cameron Waage"
-                >
-                  CW
+              <div className="relative rounded-3xl overflow-hidden border border-[rgba(255,255,255,0.10)] bg-gradient-to-br from-[#0F172A] to-[#020817]">
+                <div className="aspect-[4/5] relative">
+                  <Image
+                    src="/headshot.jpg"
+                    alt="Cameron Waage"
+                    width={360}
+                    height={450}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
-                <div className="text-center px-6">
+                <div className="text-center px-6 py-5">
                   <p className="font-semibold font-display text-lg text-white">Cameron Waage</p>
                   <p className="text-white/50 text-sm mt-1">Founder, Mazel Solutions</p>
                   <p className="text-white/40 text-xs mt-1">Placer County, CA</p>
-                </div>
-                {/* Decorative dots */}
-                <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0099FF] opacity-60" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00B4D8] opacity-60" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0099FF] opacity-60" />
                 </div>
               </div>
             </div>
@@ -313,63 +311,32 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* -- Career Timeline ------------------------------------- */}
+      {/* -- Experience Highlights -------------------------------- */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#020817]">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <ScrollReveal>
-            <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-3 font-semibold">Career Path</p>
-            <h2 className="text-3xl sm:text-4xl font-bold font-display mb-16">
+            <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-3 font-semibold">Background</p>
+            <h2 className="text-3xl sm:text-4xl font-bold font-display mb-4">
               Where the experience comes from
             </h2>
+            <p className="text-white/60 text-lg max-w-2xl mb-16 leading-relaxed">
+              27 years across carrier networks, Fortune 100 data centers, state government security, and independent consulting.
+            </p>
           </ScrollReveal>
 
-          <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-[19px] top-2 bottom-2 w-px bg-gradient-to-b from-[#0099FF] via-[rgba(0,153,255,0.3)] to-transparent" aria-hidden="true" />
-
-            <ol className="space-y-10 list-none">
-              {timeline.map((item, i) => (
-                <ScrollReveal key={item.company} delay={Math.min(i + 1, 5) as 1 | 2 | 3 | 4 | 5}>
-                  <li className="relative pl-14">
-                    {/* Dot */}
-                    <div
-                      className={`absolute left-0 top-1 w-10 h-10 rounded-full flex items-center justify-center border-2 ${
-                        item.current
-                          ? 'border-[#0099FF] bg-[#0099FF]/20 shadow-[0_0_16px_rgba(0,153,255,0.4)]'
-                          : 'border-[rgba(255,255,255,0.15)] bg-[#0F172A]'
-                      }`}
-                      aria-hidden="true"
-                    >
-                      {item.current ? (
-                        <span className="w-3 h-3 rounded-full bg-[#0099FF]" />
-                      ) : (
-                        <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                      )}
-                    </div>
-
-                    <div className="card-hover bg-[#0F172A] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 group relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[rgba(0,153,255,0.06)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="relative z-10">
-                        <div className="flex flex-wrap items-center gap-3 mb-1">
-                          <span className="text-xs font-semibold text-[#0099FF] uppercase tracking-widest">
-                            {item.year}
-                          </span>
-                          {item.current && (
-                            <span className="inline-flex items-center gap-1 text-xs text-[#0099FF] bg-[#0099FF]/10 border border-[#0099FF]/20 rounded-full px-2.5 py-0.5 font-medium">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#0099FF] animate-pulse" />
-                              Current
-                            </span>
-                          )}
-                        </div>
-                        <h3 className="text-lg font-semibold font-display text-white">{item.role}</h3>
-                        <p className="text-sm text-white/50 mb-3">{item.company}</p>
-                        <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
-                      </div>
-                    </div>
-                  </li>
-                </ScrollReveal>
-              ))}
-            </ol>
+          <div className="grid md:grid-cols-2 gap-6">
+            {experienceHighlights.map((item, i) => (
+              <ScrollReveal key={item.title} delay={Math.min(i + 1, 4) as 1 | 2 | 3 | 4}>
+                <div className="card-hover h-full bg-[#0F172A] border border-[rgba(255,255,255,0.08)] rounded-3xl p-8 group relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[rgba(0,153,255,0.06)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative z-10">
+                    <div className="mb-5">{item.icon}</div>
+                    <h3 className="text-xl font-semibold font-display mb-3 text-white">{item.title}</h3>
+                    <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>

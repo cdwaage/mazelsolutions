@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
@@ -9,27 +10,30 @@ export const metadata: Metadata = {
 const posts = [
   {
     title: 'Why Vendor-Agnostic Consulting Saves You Money',
+    slug: 'vendor-agnostic-consulting',
     date: 'March 15, 2026',
     category: 'Strategy',
     excerpt:
-      'Most IT consultancies have vendor partnerships that influence their recommendations. Here\u2019s how an independent approach can cut your technology spending by 20\u201340% while getting better-fit solutions.',
+      'Most IT consultancies have vendor partnerships that influence their recommendations. After 27 years in the industry, I have seen how these relationships inflate costs by 20-40%. Here is how an independent approach changes the math.',
+    readTime: '7 min read',
+  },
+  {
+    title: 'What 10 Years in a $100K/Day SLA Environment Taught Me About Network Reliability',
+    slug: 'network-reliability-lessons',
+    date: 'February 28, 2026',
+    category: 'Network Engineering',
+    excerpt:
+      'At Verizon Business, every minute of downtime cost real money. A decade of carrier-grade operations taught me five lessons about redundancy, monitoring, and change management that apply to networks of any size.',
     readTime: '8 min read',
   },
   {
-    title: 'HIPAA Security Checklist for 2026',
-    date: 'February 28, 2026',
-    category: 'Compliance',
-    excerpt:
-      'The regulatory landscape is shifting. From updated encryption requirements to new telehealth provisions, here\u2019s your complete checklist for HIPAA security compliance in 2026.',
-    readTime: '12 min read',
-  },
-  {
-    title: 'When to Build Custom vs. Buy SaaS',
+    title: 'HIPAA Network Security: Lessons from Kaiser Permanente\u2019s Medical Grade Networks',
+    slug: 'hipaa-network-security',
     date: 'February 10, 2026',
-    category: 'Development',
+    category: 'Compliance & Security',
     excerpt:
-      'The build vs. buy decision can make or break your technology budget. We break down the real costs, hidden risks, and decision framework we use with our clients.',
-    readTime: '10 min read',
+      'Managing networks across 7 national data centers under strict HIPAA requirements taught me what healthcare IT teams actually need to get right. Here is practical guidance beyond the checkbox audits.',
+    readTime: '9 min read',
   },
 ];
 
@@ -56,7 +60,7 @@ export default function BlogPage() {
             </h1>
             <p className="mt-6 text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
               Practical guidance on IT strategy, compliance, and technology decisions — written from
-              the front lines of enterprise consulting.
+              27 years on the front lines of enterprise networking and cybersecurity.
             </p>
           </ScrollReveal>
         </div>
@@ -68,47 +72,54 @@ export default function BlogPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post, i) => (
               <ScrollReveal key={post.title} delay={Math.min(i + 1, 5) as 1 | 2 | 3 | 4 | 5}>
-                <article className="bg-[#0F172A] border border-white/[0.08] rounded-3xl p-8 flex flex-col h-full card-hover">
-                  {/* Category badge */}
-                  <div className="mb-5">
-                    <span
-                      className="inline-block text-[#0099FF] text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full"
-                      style={{ background: 'rgba(0,153,255,0.15)' }}
-                    >
-                      {post.category}
-                    </span>
-                  </div>
+                <Link href={`/blog/${post.slug}`} className="block h-full">
+                  <article className="bg-[#0F172A] border border-white/[0.08] rounded-3xl p-8 flex flex-col h-full card-hover group">
+                    {/* Category badge */}
+                    <div className="mb-5">
+                      <span
+                        className="inline-block text-[#0099FF] text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full"
+                        style={{ background: 'rgba(0,153,255,0.15)' }}
+                      >
+                        {post.category}
+                      </span>
+                    </div>
 
-                  {/* Date */}
-                  <p className="text-white/50 text-sm mb-3">{post.date}</p>
+                    {/* Date */}
+                    <p className="text-white/50 text-sm mb-3">{post.date}</p>
 
-                  {/* Title */}
-                  <h2 className="text-[24px] font-bold font-[family-name:var(--font-display)] leading-snug text-white mb-4">
-                    {post.title}
-                  </h2>
+                    {/* Title */}
+                    <h2 className="text-[24px] font-bold font-[family-name:var(--font-display)] leading-snug text-white mb-4 group-hover:text-[#0099FF] transition-colors duration-300">
+                      {post.title}
+                    </h2>
 
-                  {/* Excerpt */}
-                  <p className="text-white/70 leading-relaxed flex-1">{post.excerpt}</p>
+                    {/* Excerpt */}
+                    <p className="text-white/70 leading-relaxed flex-1">{post.excerpt}</p>
 
-                  {/* Read time */}
-                  <div className="mt-6 pt-5 border-t border-white/[0.08] flex items-center gap-2 text-white/50 text-sm">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    {post.readTime}
-                  </div>
-                </article>
+                    {/* Read time + arrow */}
+                    <div className="mt-6 pt-5 border-t border-white/[0.08] flex items-center justify-between text-white/50 text-sm">
+                      <div className="flex items-center gap-2">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        {post.readTime}
+                      </div>
+                      <span className="text-[#0099FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs font-semibold uppercase tracking-wider">
+                        Read Article &rarr;
+                      </span>
+                    </div>
+                  </article>
+                </Link>
               </ScrollReveal>
             ))}
           </div>

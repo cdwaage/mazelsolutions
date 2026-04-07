@@ -91,6 +91,7 @@ export default function Header() {
             </div>
             <Link href="/industries" className="text-sm font-medium text-white/70 hover:text-white transition-colors">Industries</Link>
             <Link href="/case-studies" className="text-sm font-medium text-white/70 hover:text-white transition-colors">Case Studies</Link>
+            <Link href="/projects" className="text-sm font-medium text-white/70 hover:text-white transition-colors">Projects</Link>
             <Link href="/blog" className="text-sm font-medium text-white/70 hover:text-white transition-colors">Blog</Link>
             <Link href="/contact" className="text-sm font-medium text-white/70 hover:text-white transition-colors">Contact</Link>
           </nav>
@@ -119,6 +120,7 @@ export default function Header() {
             { name: 'Services', href: '/services' },
             { name: 'Industries', href: '/industries' },
             { name: 'Case Studies', href: '/case-studies' },
+            { name: 'Projects', href: '/projects' },
             { name: 'Blog', href: '/blog' },
             { name: 'Contact', href: '/contact' },
           ].map((link) => (

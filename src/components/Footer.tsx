@@ -28,6 +28,7 @@ export default function Footer() {
               {[
                 ['About', '/about'],
                 ['Case Studies', '/case-studies'],
+                ['Projects', '/projects'],
                 ['Blog', '/blog'],
                 ['Contact', '/contact'],
               ].map(([name, href]) => (
